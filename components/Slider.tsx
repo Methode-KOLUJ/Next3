@@ -107,7 +107,7 @@ const YouTubeDropdown = () => {
 
       {isOpen && (
         <motion.div
-          className="absolute bottom-full left-0 mb-2 w-55 bg-white rounded-lg shadow-xl overflow-hidden z-50"
+          className="absolute bottom-full right-0 lg:left-0 mb-2 w-55 bg-white rounded-lg shadow-xl overflow-hidden z-50"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
