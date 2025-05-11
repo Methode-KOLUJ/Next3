@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper as SwiperCore } from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { useRef } from 'react';
@@ -49,7 +50,7 @@ export default function AboutSection() {
     }
   ];
 
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperCore | null>(null);
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
 
@@ -77,7 +78,7 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           variants={fadeIn}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 mb-4">
@@ -94,7 +95,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <div className="relative rounded-xl overflow-hidden border-4 border-white/10 aspect-video">
               <Image
@@ -114,7 +115,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <h3 className="text-3xl font-bold text-white mb-6 text-center lg:text-left">
               Nous sommes une organisation <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-red-500">multifacettes</span>
@@ -133,7 +134,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="mt-4 lg:mt-8"
         >
           <p className="text-gray-300 mb-4 text-lg lg:text-xl text-center lg:text-left">
@@ -146,7 +147,7 @@ export default function AboutSection() {
           className="mt-10 relative"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={fadeIn}
         >
           {/* Boutons navigation */}
@@ -184,9 +185,9 @@ export default function AboutSection() {
             loop={true}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
-              // @ts-ignore
+              // @ts-expect-error: Swiper's types are incomplete for navigation elements
               swiper.params.navigation.prevEl = prevRef.current;
-              // @ts-ignore
+              // @ts-expect-error: Swiper's types are incomplete for navigation elements
               swiper.params.navigation.nextEl = nextRef.current;
               swiper.navigation.init();
               swiper.navigation.update();
