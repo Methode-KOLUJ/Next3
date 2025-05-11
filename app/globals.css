@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+*{
+    user-select: none;
+}
+
+body{
+    background-color: black;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  user-select: none;
+}
