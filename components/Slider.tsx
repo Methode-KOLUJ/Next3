@@ -157,8 +157,8 @@ const SocialMediaBox = () => {
     },
   ];
 
-  return (
-    <div className="fixed bottom-4 left-4 z-20 flex flex-col items-center gap-3 whitespace-nowrap">
+return (
+    <div className="fixed bottom-4 right-2 lg:right-auto lg:left-4 z-20 flex flex-col items-center gap-3 whitespace-nowrap">
       <YouTubeDropdown />
 
       <div className="flex flex-col gap-2">
