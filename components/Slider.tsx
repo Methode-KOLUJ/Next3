@@ -158,10 +158,10 @@ const SocialMediaBox = () => {
   ];
 
   return (
-    <div className="fixed bottom-2 left-2 md:bottom-4 md:left-6 lg:left-12 z-20 flex items-end gap-3 whitespace-nowrap">
+    <div className="fixed bottom-4 left-4 z-20 flex flex-col items-center gap-3 whitespace-nowrap">
       <YouTubeDropdown />
 
-      <div className="flex gap-2">
+      <div className="flex flex-col gap-2">
         {socialLinks.map((link) => (
           <motion.a
             key={link.name}
@@ -169,7 +169,7 @@ const SocialMediaBox = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={`flex items-center justify-center w-8 h-8 rounded-full ${link.bgColor} text-white shadow-lg transition-all duration-300`}
-            whileHover={{ scale: 1.1, y: -2 }}
+            whileHover={{ scale: 1.1, x: 2 }}
             whileTap={{ scale: 0.9 }}
           >
             {link.icon}
